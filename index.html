@@ -1,0 +1,454 @@
+<head>
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    function scanFinger(){
+	  console.log("clicked")
+	  finger_enabled = (finger_enabled === 'true') ? 'false' :'true';
+	  console.log(finger_enabled)
+	  $('.sign-in').attr('data-finger',finger_enabled);
+	}
+	var finger_enabled = $('.sign-in').data('data-finger');
+	var finger_enabled = false
+
+</script>
+</head>
+
+<div class="v-center-wrap">
+  <div class="v-center-stuff">
+    
+    <div class="sign-in v-center-wrap" data-finger="false">
+      <div class="v-center-stuff half">
+        <div class="caption">
+          <h1 class="fade">Don't Have a Fingerprint Enabled Device?</h1>
+          <span class="fade">
+            <button class="btn btn--green_reverse toggle-finger">Standard sign in</button>
+          </span>
+        </div>
+        <form action="#">
+           <h1 class="fade">Sign in</h1>
+           <label for="email" class="fade">E-mail address</label>
+           <span class="fade">
+             <input type="email" id="email" placeholder="hi@devolk.pl" required>
+           </span>
+           <label for="pass" class="fade">Password</label>
+           <span class="fade">
+             <input type="password" id="pass" value="sthgood" required>
+           </span>
+           <span class="fade">
+             <button type="submit" class="btn btn--green">Sign in</button>
+           </span>
+        </form>
+            
+ 
+      </div>
+      <div class="v-center-stuff half">
+        <h1 class="fade msg">Place your Finger on the Device Now.</h1>
+        <div class="caption-finger">
+           <h1 class="fade">Use fingerprint</h1>
+           <span class="fingerprint"></span>
+           <span class="fade">
+             <button onclick="scanFinger()" class="btn btn--white toggle-finger">Use fingerprint</button>
+           </span>
+        </div>
+      </div>  
+      
+    </div>
+    
+  </div>
+</div>
+
+<div class="copy">@Pat Johnson <a href="https://dribbble.com/shots/2349465-Fingerprint-Sign-In" target="_blank">https://dribbble.com/shots/2349465-Fingerprint-Sign-In</a></div>
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+ * {
+	 box-sizing: border-box;
+	 outline: none;
+}
+ html, body {
+	 height: 100%;
+}
+ body {
+	 background: url(http://dev.devolk.pl/demo/fingerprint_sign_in/blur_bgr.jpg) no-repeat center;
+	 background-size: cover;
+	 padding: 0 1em;
+	 font-family: 'Roboto', sans-serif;
+	 font-weight: 300;
+	 font-size: 14px;
+}
+ h1 {
+	 font-size: 1.65em;
+	 line-height: 1.25em;
+	 margin: 0 0 1.25em;
+	 color: #cccccca0;
+}
+ h2 {
+	 font-size: 1.75em;
+}
+ .v-center-wrap {
+	 height: 100%;
+	 display: table;
+	 width: 100%;
+}
+ .v-center-stuff {
+	 vertical-align: middle;
+	 display: table-cell;
+}
+ @media (min-width: 640px) {
+	 .half {
+		 width: 50%;
+	}
+}
+ input {
+	 width: 100%;
+	 margin: 0 0 2em;
+	 padding-top: 0.75em;
+	 border: none;
+	 border-bottom: 1px solid #333d6b;
+	 background: none;
+	 font-size: 1em;
+	 line-height: 1.4em;
+	 text-align: left;
+	 transition: border 0.15s linear;
+}
+ input.placeholder {
+	 color: #757da4;
+}
+ input:-moz-placeholder {
+	 color: #757da4;;
+}
+ input::-moz-placeholder {
+	 color: #757da4;;
+}
+ input::-webkit-input-placeholder {
+	 color: #757da4;;
+}
+ input:focus {
+	 border-color: #00c7cd;
+}
+ label {
+	 text-align: left;
+	 display: block;
+	 text-transform: uppercase;
+	 font-size: 0.8em;
+	 font-weight: 300;
+	 letter-spacing: 0.6px;
+	 color: #18181b;
+}
+ .btn {
+	 text-transform: uppercase;
+	 border: 2px solid white;
+	 border-radius: 30px;
+	 background: transparent;
+	 display: inline-block;
+	 font-size: 0.65em;
+	 padding: 1.3em 2em 1.4em;
+	 letter-spacing: 0.6px;
+	 width: 100%;
+	 max-width: 150px;
+	 transition: 0.1s linear;
+}
+ .btn--white {
+	 color: #ccc;
+	 border-color: #ccc;
+}
+ .btn--white:hover {
+	 border-color: #101415;
+	 color: #0f1617;
+}
+ .btn--green {
+	 color: #182222;
+	 border-color: #121a1a;
+}
+ .btn--green:hover {
+	 border-color: #5b5c60;
+	 color: #595a60;
+}
+ .btn--green_reverse {
+	 color: #131616;
+	 border-color: #161e1e;
+}
+ .btn--green_reverse:hover {
+	 border-color: #ccc;
+	 color: #ccc;
+}
+ .sign-in {
+	 max-width: 700px;
+	 max-height: 440px;
+	 margin: 4em auto;
+	 position: relative;
+	 z-index: 1;
+	 border-radius: 10px;
+	 text-align: center;
+	 background: #134f5c;
+	 color: white;
+	 box-shadow: 0 0 40px rgba(36, 37, 42, .5);
+	 padding: 0 10px;
+}
+ .sign-in .half {
+	 padding: 2em 3.5em;
+	 position: relative;
+	 z-index: 1;
+}
+ .sign-in:after {
+	 position: absolute;
+	 content: '';
+	 background: #999999;
+	 top: -20px;
+	 width: calc(50% - 10px);
+	 height: calc(100% + 40px);
+	 z-index: 0;
+	 transition: left 0.3s cubic-bezier(1, 0, 0, 1);
+	 border-radius: 10px;
+}
+ .sign-in form {
+	 visibility: hidden;
+}
+ .sign-in form h1 {
+	 color: #00c7cd;
+	 text-transform: uppercase;
+	 margin-bottom: 2em;
+	 font-weight: 400;
+	 letter-spacing: 0.4px;
+}
+ .sign-in form button {
+	 margin-top: 2.6em;
+}
+ .sign-in .caption {
+	 position: absolute;
+	 left: -10px;
+	 top: 50%;
+	 padding: 0 5em;
+	 transform: translate(0, -50%);
+}
+ .sign-in .msg {
+	 position: absolute;
+	 left: 0;
+	 top: 2em;
+	 padding: 0 3em;
+	 color: #444b6c;
+}
+ .fade {
+	 transition: opacity 0.1s linear, transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+	 opacity: 0;
+	 transform: translate(0, 20px);
+}
+ .sign-in[data-finger='false']:after {
+	 left: 10px;
+}
+ .sign-in[data-finger='false'] .caption {
+	 visibility: hidden;
+}
+ .sign-in[data-finger='false'] form {
+	 visibility: visible;
+}
+ .sign-in[data-finger='false'] form .fade {
+	 opacity: 1;
+	 transform: translate(0, 0);
+}
+ .sign-in[data-finger='false'] form .fade:nth-child(1) {
+	 transition-delay: 0.05s;
+}
+ .sign-in[data-finger='false'] form .fade:nth-child(2) {
+	 transition-delay: 0.1s;
+}
+ .sign-in[data-finger='false'] form .fade:nth-child(3) {
+	 transition-delay: 0.15s;
+}
+ .sign-in[data-finger='false'] form .fade:nth-child(4) {
+	 transition-delay: 0.2s;
+}
+ .sign-in[data-finger='false'] form .fade:nth-child(5) {
+	 transition-delay: 0.25s;
+}
+ .sign-in[data-finger='false'] form .fade:nth-child(6) {
+	 transition-delay: 0.3s;
+}
+ .sign-in[data-finger='false'] form .fade:nth-child(7) {
+	 transition-delay: 0.35s;
+}
+ .sign-in[data-finger='false'] form .fade:nth-child(8) {
+	 transition-delay: 0.4s;
+}
+ .sign-in[data-finger='false'] form .fade:nth-child(9) {
+	 transition-delay: 0.45s;
+}
+ .sign-in[data-finger='false'] .caption-finger .fade {
+	 opacity: 1;
+	 transform: translate(0, 0);
+}
+ .sign-in[data-finger='false'] .caption-finger .fade:nth-child(1) {
+	 transition-delay: 0.05s;
+}
+ .sign-in[data-finger='false'] .caption-finger .fade:nth-child(2) {
+	 transition-delay: 0.1s;
+}
+ .sign-in[data-finger='false'] .caption-finger .fade:nth-child(3) {
+	 transition-delay: 0.15s;
+}
+ .sign-in[data-finger='false'] .caption-finger .fade:nth-child(4) {
+	 transition-delay: 0.2s;
+}
+ .sign-in[data-finger='false'] .caption-finger .fade:nth-child(5) {
+	 transition-delay: 0.25s;
+}
+ .sign-in[data-finger='false'] .caption-finger .fade:nth-child(6) {
+	 transition-delay: 0.3s;
+}
+ .sign-in[data-finger='false'] .caption-finger .fade:nth-child(7) {
+	 transition-delay: 0.35s;
+}
+ .sign-in[data-finger='false'] .caption-finger .fade:nth-child(8) {
+	 transition-delay: 0.4s;
+}
+ .sign-in[data-finger='false'] .caption-finger .fade:nth-child(9) {
+	 transition-delay: 0.45s;
+}
+ .sign-in[data-finger='false'] .msg {
+	 opacity: 0;
+	 transform: translate(0, 10px);
+	 transition: none;
+}
+ .sign-in[data-finger='true']:after {
+	 left: 50%;
+}
+ .sign-in[data-finger='true'] .caption {
+	 visibility: visible;
+}
+ .sign-in[data-finger='true'] .caption .fade {
+	 opacity: 1;
+	 transform: translate(0, 0);
+}
+ .sign-in[data-finger='true'] .caption .fade:nth-child(1) {
+	 transition-delay: 0.25s;
+}
+ .sign-in[data-finger='true'] .caption .fade:nth-child(2) {
+	 transition-delay: 0.3s;
+}
+ .sign-in[data-finger='true'] .caption .fade:nth-child(3) {
+	 transition-delay: 0.35s;
+}
+ .sign-in[data-finger='true'] .caption .fade:nth-child(4) {
+	 transition-delay: 0.4s;
+}
+ .sign-in[data-finger='true'] .caption .fade:nth-child(5) {
+	 transition-delay: 0.45s;
+}
+ .sign-in[data-finger='true'] .caption .fade:nth-child(6) {
+	 transition-delay: 0.5s;
+}
+ .sign-in[data-finger='true'] .caption .fade:nth-child(7) {
+	 transition-delay: 0.55s;
+}
+ .sign-in[data-finger='true'] .caption .fade:nth-child(8) {
+	 transition-delay: 0.6s;
+}
+ .sign-in[data-finger='true'] .caption .fade:nth-child(9) {
+	 transition-delay: 0.65s;
+}
+ .sign-in[data-finger='true'] .caption-finger .fade {
+	 opacity: 0;
+	 transform: translate(0, -10px);
+}
+ .sign-in[data-finger='true'] .caption-finger h1 {
+	 transform: translate(0, 10px);
+}
+ .sign-in[data-finger='true'] .caption-finger .fade:nth-child(1) {
+	 transition-delay: 0.05s;
+}
+ .sign-in[data-finger='true'] .caption-finger .fade:nth-child(2) {
+	 transition-delay: 0.1s;
+}
+ .sign-in[data-finger='true'] .caption-finger .fade:nth-child(3) {
+	 transition-delay: 0.15s;
+}
+ .sign-in[data-finger='true'] .caption-finger .fade:nth-child(4) {
+	 transition-delay: 0.2s;
+}
+ .sign-in[data-finger='true'] .caption-finger .fade:nth-child(5) {
+	 transition-delay: 0.25s;
+}
+ .sign-in[data-finger='true'] .caption-finger .fade:nth-child(6) {
+	 transition-delay: 0.3s;
+}
+ .sign-in[data-finger='true'] .caption-finger .fade:nth-child(7) {
+	 transition-delay: 0.35s;
+}
+ .sign-in[data-finger='true'] .caption-finger .fade:nth-child(8) {
+	 transition-delay: 0.4s;
+}
+ .sign-in[data-finger='true'] .caption-finger .fade:nth-child(9) {
+	 transition-delay: 0.45s;
+}
+ .sign-in[data-finger='true'] .msg {
+	 opacity: 1;
+	 transform: translate(0, 0);
+	 transition-delay: 0.2s;
+}
+ .sign-in[data-finger='true'] .fingerprint:before {
+	 opacity: 1;
+	 transition: opacity 0.4s 0.3s linear;
+	 animation: spin 2s infinite linear;
+}
+ .sign-in[data-finger='true'] .fingerprint::after {
+	 transform: scale(0.8) translateZ(0);
+}
+ .fingerprint {
+	 display: inline-block;
+	 width: 120px;
+	 height: 120px;
+	 margin-bottom: 2em;
+	 position: relative;
+	 z-index: 3;
+}
+ .fingerprint:before {
+	 position: absolute;
+	 width: 112px;
+	 height: 112px;
+	 transform: translateZ(0);
+	 border: 4px solid #00c7cd;
+	 border-top-color: transparent;
+	 border-bottom-color: transparent;
+	 border-radius: 50%;
+	 content: '';
+	 left: 0;
+	 top: 0;
+	 opacity: 0;
+}
+ .fingerprint:after {
+	 position: absolute;
+	 content: '';
+	 top: 50%;
+	 left: 50%;
+	 margin: -50px 0 0 -50px;
+	 width: 100px;
+	 height: 100px;
+	 background-image: url(http://dev.devolk.pl/demo/fingerprint_sign_in/fingerprint.svg);
+	 background-repeat: no-repeat;
+	 background-position: center;
+	 background-size: 100px;
+	 transition: transform 0.55s 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+	 transform: translateZ(0);
+}
+ @keyframes spin {
+	 0% {
+		 transform: rotate(0deg);
+	}
+	 100% {
+		 transform: rotate(360deg);
+	}
+}
+ .copy {
+	 position: absolute;
+	 z-index: 0;
+	 bottom: 12px;
+	 left: 12px;
+	 color: #ccc;
+	 opacity: 0.3;
+}
+ .copy a {
+	 color: inherit;
+}
+ 
+</style>
+
